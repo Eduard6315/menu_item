@@ -1,0 +1,23 @@
+{% load template_tag %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Site</title>
+</head>
+<body>
+    <header>
+        {% draw_menu 'Главное меню' request.path %}
+        {% for item in menu_items %}
+        {% if item.is_active %}
+         <a href="{{ item.url }}" class="active">{{ item.name }}</a>
+        {% else %}
+          <a href="{{ item.url }}">{{ item.name }}</a>
+        {% endif %}
+        {% endfor %}
+    </header>
+
+    
+</html>
